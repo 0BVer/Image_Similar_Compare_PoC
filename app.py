@@ -20,11 +20,13 @@ def check_simular():
         return 'hi'
 
     if request.method == 'POST':
-        image = request.files['file']
-        image.save(secure_filename(image.filename))
+        image1 = request.files['file1']
+        image2 = request.files['file2']
+        image1.save(secure_filename(image1.filename))
+        image2.save(secure_filename(image2.filename))
 
         # 이미지 읽어오기
-        imgs = [cv2.imread('./base.png'), cv2.imread(image.filename)]
+        imgs = [cv2.imread(image1.filename), cv2.imread(image2.filename)]
 
         hists = []
         grays = []
